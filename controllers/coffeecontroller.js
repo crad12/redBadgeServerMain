@@ -22,11 +22,19 @@ router.post('/create', validateSession, (req, res) => {
   }
 })
 
-// router.get('/:name', validateSession, (req, res) => {
-//   Log.findOne({ where: { nameOfLog: req.params.name }})
-//     .then(log => res.status(200).json(log))
-//     .catch(err => res.status(500).json({ error: err}))
-// })
+router.get('/:id', validateSession, (req, res) => {
+  Coffee.findOne({ where: { id: req.params.id },
+    Include: [
+      {
+      model: Comment,
+      where:{ coffeeId: req.params.id }
+      }
+    ]
+  })
+    .then(coffee => res.status(200).json(coffee))
+    .catch(err => res.status(500).json({ error: err}))
+})
+
 
 router.get('/owner', validateSession, (req, res) => {
     Coffee.findAll({ where: { owner: req.user.id }})

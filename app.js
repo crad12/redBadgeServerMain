@@ -12,8 +12,8 @@ sequelize.sync();
 app.use(bodyParser.json());
 app.use(require('./middleware/headers'));
 app.use(require('./middleware/validate-session'))
-app.use(express.static(__dirname + '/public'))
-app.get('/', (req, res) => res.render('index'));
+// app.use(express.static(__dirname + '/public'))
+// app.get('/', (req, res) => res.render('index'));
 
 app.use('/coffee', coffee);
 app.use('/user', user);

@@ -1,10 +1,10 @@
 require('dotenv').config();
 const express = require('express'); 
 const app = express(); 
+const sequelize = require('./db');
 const coffee = require('./controllers/coffeecontroller');
 const user = require('./controllers/usercontroller');
 const comment = require('./controllers/commentcontroller');
-const sequelize = require('./db');
 const bodyParser = require('body-parser');
 
 sequelize.sync();

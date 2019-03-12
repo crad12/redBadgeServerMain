@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();  
 const sequelize = require('../db');
 const validateSession = require('../middleware/validate-session');
-var Coffee = sequelize.import('../models/coffee');
+// var Coffee = sequelize.import('../models/coffee');
+var Coffee = sequelize.model('coffee');
 
 router.post('/create', validateSession, (req, res) => {
   if (!req.errors) {

@@ -75,6 +75,12 @@ router.get('/owner', validateSession, (req, res) => {
         .catch(err => res.status(500).json({error: err}))
 })
 
+router.get('/', validateSession, (req, res) => {
+  Coffee.findAll()
+      .then(coffee => res.status(200).json(coffee))
+      .catch(err => res.status(500).json({error: err}))
+})
+
 router.put('/:id', validateSession, (req, res) => {
   if (!req.errors) {
     Coffee.update(req.body.coffee, { where: { id: req.params.id }})

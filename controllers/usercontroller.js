@@ -12,8 +12,8 @@ console.log(req.body)
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password: bcryptjs.hashSync(req.body.password, 10)
-
+        password: bcryptjs.hashSync(req.body.password, 10),
+        role: "user"
   }).then(
       createSuccess = (user) => {
           let token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60*60*24});

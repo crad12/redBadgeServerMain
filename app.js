@@ -17,6 +17,6 @@ app.get('/', (req, res) => res.render('index'));
 
 app.use('/coffee', coffee);
 app.use('/user', user);
-app.use('/comment', comment);
+app.use('/', comment);
 
 app.listen(process.env.PORT, () => console.log(`App is listening on ${process.env.PORT}`));

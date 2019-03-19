@@ -6,11 +6,11 @@ module.exports = (sequelize, DataTypes) => {
         }, 
         comment: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
         }, 
         rating: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
         },
         owner: {
         type: DataTypes.INTEGER,

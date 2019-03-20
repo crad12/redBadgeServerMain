@@ -7,7 +7,7 @@ const user = require('./controllers/usercontroller');
 const comment = require('./controllers/commentcontroller');
 const bodyParser = require('body-parser');
 
-sequelize.sync();
+sequelize.sync({force:true});
 
 app.use(bodyParser.json());
 app.use(require('./middleware/headers'));

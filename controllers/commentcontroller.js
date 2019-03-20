@@ -23,16 +23,16 @@ router.post('/coffee/:coffeeId/comment/create', validateSession, (req, res) => {
   }
 })
 
-// router.get('/:name', validateSession, (req, res) => {
-//   Log.findOne({ where: { nameOfLog: req.params.name }})
-//     .then(log => res.status(200).json(log))
-//     .catch(err => res.status(500).json({ error: err}))
+// router.get('/owner', validateSession, (req, res) => {
+//   Coffee.findAll({ where: { owner: req.user.id }})
+//       .then(coffee => res.status(200).json(coffee))
+//       .catch(err => res.status(500).json({error: err}))
 // })
 
-// router.get('/comment/:id', validateSession, (req, res) => {
-//     Comment.findAll({ where: {  }})
-//         .then(comment => res.status(200).json(comment))
-//         .catch(err => res.status(500).json({error: err}))
+// router.get('/', validateSession, (req, res) => {
+// Coffee.findAll()
+//     .then(coffee => res.status(200).json(coffee))
+//     .catch(err => res.status(500).json({error: err}))
 // })
 
 router.put('/comment/:id', validateSession, (req, res) => {

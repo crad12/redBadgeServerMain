@@ -47,7 +47,7 @@ router.put('/comment/:id', validateSession, (req, res) => {
 
 router.delete('/comment/:id', validateSession, (req, res) => {
     if (!req.errors) {
-      Comment.destroy({ where: { id: req.params.id }})
+      Comment.destroy({ where: { owner: req.user.id }})
       .then(comment => res.status(200).json(comment))
       .catch(err => res.json(req.errors))
   } else {

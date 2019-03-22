@@ -92,8 +92,9 @@ router.put('/:id', validateSession, (req, res) => {
 })
 
 router.delete('/:id', validateSession, (req, res) => {
+  // matched coffeeId to param id
     if (!req.errors) {
-      Coffee.destroy({ where: { userId: req.user.id }})
+      Coffee.destroy({ where: { userId: req.user.id, id: req.params.id}})
       .then(coffee => res.status(200).json(coffee))
       .catch(err => res.json(req.errors))
   } else {
